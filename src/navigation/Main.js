@@ -1,13 +1,15 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import { BottomTabNavigator } from './BottomTabNavigator';
 import { List } from '../screens/List';
 import { TextDemo, ButtonDemo, FormDemo } from '../screens/Demos';
 
-const MainStack = createStackNavigator();
+const MainStack = createNativeStackNavigator();
 
 export const Main = () => (
   <MainStack.Navigator>
+    <MainStack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
     <MainStack.Screen name="List" component={List} />
     <MainStack.Screen
       name="TextDemo"
