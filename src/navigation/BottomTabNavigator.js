@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Icon } from '../components/Icon';
+import Colors from '../constants/colors';
 import useColorScheme from '../hooks/useColorScheme';
 import SearchTabScreen from '../screens/SearchTabScreen';
 import HomeTabScreen from '../screens/HomeTabScreen';
@@ -16,7 +17,12 @@ export const BottomTabNavigator = () => {
   const colorScheme = useColorScheme();
 
   return (
-    <BottomTab.Navigator initialRouteName="HomeTabScreen">
+    <BottomTab.Navigator
+      initialRouteName="HomeTabScreen"
+      screenOptions={{
+        tabBarActiveTintColor: Colors[colorScheme].tint,
+      }}
+    >
       <BottomTab.Screen
         name="SearchTabScreen"
         component={SearchTabScreen}
